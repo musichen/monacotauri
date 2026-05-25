@@ -1,8 +1,10 @@
 {
-  "name": "montauri-editor",
+  "name": "monacotauri",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.1.1",
   "dependencies": {
+    "monaco-editor": "0.23.0",
     "react": "17.0.1",
     "react-color": "2.18.1",
     "react-dom": "17.0.1",
@@ -10,6 +12,7 @@
     "react-monaco-editor": "^0.42.0"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2.8.0",
     "monaco-editor-webpack-plugin": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "7.14.0",
@@ -22,9 +25,11 @@
     "react-app-rewired": "^2.1.8"
   },
   "scripts": {
-    "start": "export REACT_APP_IS_WEB_MODE=true && react-app-rewired start",
-    "build": "react-app-rewired build",
-    "bundle": "react-app-rewired build && tauri build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider REACT_APP_IS_WEB_MODE=true react-app-rewired start",
+    "start:tauri": "NODE_OPTIONS=--openssl-legacy-provider PORT=4000 react-app-rewired start",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-app-rewired build",
+    "tauri": "tauri",
+    "bundle": "CI=true tauri build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },

@@ -52,6 +52,19 @@ src-tauri/target/release/bundle/dmg/MonacoTauri_0.1.0_aarch64.dmg
 The build uses non-interactive DMG packaging so it runs reliably from a
 terminal without waiting for Finder automation.
 
+## Development scripts
+
+All scripts are defined in `package.json`:
+
+| Script | Description |
+| --- | --- |
+| `pnpm start` | Run the web version in a browser (Webpack dev server) |
+| `pnpm start:tauri` | Run the web version on port 4000 for Tauri development |
+| `pnpm tauri dev` | Run the Tauri desktop app in development mode |
+| `pnpm run build` | Build the web version for production |
+| `pnpm run bundle` | Build the macOS app and DMG installer (see Build For macOS) |
+| `pnpm test` | Run the Jest test suite via `react-app-rewired` |
+
 ## Notes
 
 - The original UI is based on React and `react-monaco-editor`.
